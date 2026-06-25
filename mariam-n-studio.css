@@ -2003,22 +2003,27 @@ footer {
   justify-content: space-between;
   gap: clamp(28px, 6vw, 88px);
   width: min(1120px, calc(100% - clamp(40px, 10vw, 156px)));
-  margin: clamp(44px, 6vw, 82px) auto clamp(20px, 3vw, 36px);
+  margin: clamp(72px, 8vw, 124px) auto clamp(24px, 3.4vw, 44px);
   border-top: 1px solid rgba(79, 47, 44, 0.18);
-  padding-top: clamp(22px, 3vw, 34px);
+  padding-top: clamp(30px, 3.8vw, 48px);
 }
 
 .project-nav__link {
   display: inline-flex;
   align-items: center;
-  gap: 12px;
+  gap: 16px;
   color: var(--project-accent);
   font-family: var(--mono-sans);
-  font-size: 11px;
+  font-size: 15px;
   letter-spacing: 0.16em;
   line-height: 1;
   text-transform: uppercase;
   transition: color 520ms ease, transform 520ms ease;
+}
+
+.project-nav__link span[aria-hidden="true"] {
+  font-size: 1.45em;
+  line-height: 0.82;
 }
 
 .project-nav__link:hover,
@@ -2526,11 +2531,12 @@ footer {
 
   .project-nav {
     width: min(100%, calc(100vw - 36px));
-    margin-top: clamp(34px, 10vw, 54px);
-    padding-top: 22px;
+    margin-top: clamp(52px, 14vw, 78px);
+    padding-top: 28px;
   }
 
   .project-nav__link {
-    font-size: 10px;
+    gap: 12px;
+    font-size: 13px;
   }
 }
