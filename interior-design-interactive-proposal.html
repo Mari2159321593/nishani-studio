@@ -1,0 +1,875 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Mariam N Hospitality Design Proposal</title>
+    <style>
+      :root {
+        --ink: #151917;
+        --muted: #68706a;
+        --paper: #f6f1ea;
+        --panel: #ffffff;
+        --line: #ddd6cc;
+        --sage: #62766a;
+        --terracotta: #b45847;
+        --charcoal: #171b1c;
+        --gold: #b8894a;
+        --berry: #8d3150;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        color: var(--ink);
+        background: var(--paper);
+      }
+
+      button,
+      input {
+        font: inherit;
+      }
+
+      .topbar {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+        padding: 14px clamp(18px, 4vw, 54px);
+        border-bottom: 1px solid rgba(21, 25, 23, 0.1);
+        background: rgba(247, 244, 239, 0.88);
+        backdrop-filter: blur(18px);
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        min-width: 0;
+      }
+
+      .mark {
+        display: grid;
+        width: 34px;
+        height: 34px;
+        place-items: center;
+        border: 1px solid var(--ink);
+        color: var(--ink);
+        font-family: Georgia, serif;
+        font-size: 18px;
+      }
+
+      .brand strong {
+        display: block;
+        font-size: 14px;
+        line-height: 1;
+      }
+
+      .brand span {
+        display: block;
+        margin-top: 4px;
+        color: var(--muted);
+        font-size: 12px;
+      }
+
+      .nav {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+      }
+
+      .nav a,
+      .cta,
+      .ghost,
+      .tab,
+      .option {
+        min-height: 40px;
+        border: 1px solid transparent;
+        border-radius: 7px;
+        cursor: pointer;
+      }
+
+      .nav a {
+        display: inline-flex;
+        align-items: center;
+        color: var(--ink);
+        padding: 8px 10px;
+        text-decoration: none;
+        font-size: 13px;
+      }
+
+      .nav a:hover {
+        border-color: var(--line);
+        background: rgba(255, 255, 255, 0.72);
+      }
+
+      .hero {
+        min-height: calc(100vh - 63px);
+        display: grid;
+        grid-template-columns: minmax(0, 0.95fr) minmax(360px, 1.05fr);
+        align-items: stretch;
+      }
+
+      .hero-copy {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: clamp(42px, 7vw, 92px) clamp(22px, 5vw, 72px);
+      }
+
+      .eyebrow {
+        margin: 0 0 18px;
+        color: var(--terracotta);
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 0;
+        text-transform: uppercase;
+      }
+
+      h1 {
+        max-width: 760px;
+        margin: 0;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: clamp(42px, 7vw, 82px);
+        line-height: 0.95;
+        font-weight: 500;
+      }
+
+      .hero-copy > p {
+        max-width: 620px;
+        margin: 24px 0 0;
+        color: #454c47;
+        font-size: 18px;
+        line-height: 1.6;
+      }
+
+      .actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 34px;
+      }
+
+      .cta,
+      .ghost {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 9px;
+        padding: 11px 17px;
+        text-decoration: none;
+      }
+
+      .cta {
+        background: var(--ink);
+        color: white;
+      }
+
+      .ghost {
+        border-color: var(--line);
+        background: rgba(255, 255, 255, 0.58);
+        color: var(--ink);
+      }
+
+      .proposal-meta {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 10px;
+        max-width: 660px;
+        margin-top: 42px;
+      }
+
+      .metric {
+        border-top: 1px solid var(--line);
+        padding-top: 14px;
+      }
+
+      .metric strong {
+        display: block;
+        font-size: 20px;
+      }
+
+      .metric span {
+        display: block;
+        margin-top: 5px;
+        color: var(--muted);
+        font-size: 12px;
+      }
+
+      .hero-image {
+        position: relative;
+        min-height: 520px;
+        background: var(--charcoal);
+        overflow: hidden;
+      }
+
+      .hero-image img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: cover;
+      }
+
+      .hero-image::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(90deg, rgba(247, 244, 239, 0.12), rgba(21, 25, 23, 0.08));
+        pointer-events: none;
+      }
+
+      main {
+        overflow: hidden;
+      }
+
+      section {
+        padding: clamp(54px, 8vw, 92px) clamp(20px, 5vw, 68px);
+      }
+
+      .section-inner {
+        max-width: 1180px;
+        margin: 0 auto;
+      }
+
+      .section-head {
+        display: flex;
+        align-items: end;
+        justify-content: space-between;
+        gap: 22px;
+        margin-bottom: 30px;
+      }
+
+      h2 {
+        margin: 0;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: clamp(31px, 4.5vw, 52px);
+        line-height: 1.04;
+        font-weight: 500;
+      }
+
+      .section-head p {
+        max-width: 440px;
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.55;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .card {
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--panel);
+        padding: 22px;
+      }
+
+      .card h3 {
+        margin: 0 0 11px;
+        font-size: 18px;
+      }
+
+      .card p,
+      .card li {
+        color: var(--muted);
+        line-height: 1.55;
+      }
+
+      .card p {
+        margin: 0;
+      }
+
+      .card ul {
+        margin: 16px 0 0;
+        padding-left: 18px;
+      }
+
+      .concept {
+        background: #ebe5db;
+      }
+
+      .tabs {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-bottom: 14px;
+      }
+
+      .tab {
+        padding: 10px 14px;
+        border-color: var(--line);
+        background: rgba(255, 255, 255, 0.5);
+        color: var(--ink);
+      }
+
+      .tab.active {
+        border-color: var(--sage);
+        background: var(--sage);
+        color: white;
+      }
+
+      .concept-panel {
+        display: grid;
+        grid-template-columns: minmax(0, 0.95fr) minmax(300px, 1.05fr);
+        gap: 18px;
+        align-items: stretch;
+      }
+
+      .palette {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        min-height: 280px;
+        border: 1px solid rgba(21, 25, 23, 0.1);
+        border-radius: 8px;
+        overflow: hidden;
+      }
+
+      .swatch {
+        display: flex;
+        align-items: end;
+        min-width: 0;
+        padding: 14px;
+        color: white;
+        font-size: 12px;
+      }
+
+      .swatch.light {
+        color: var(--ink);
+      }
+
+      .timeline {
+        counter-reset: step;
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .step {
+        position: relative;
+        min-height: 190px;
+      }
+
+      .step::before {
+        counter-increment: step;
+        content: counter(step);
+        display: grid;
+        width: 34px;
+        height: 34px;
+        margin-bottom: 34px;
+        place-items: center;
+        border-radius: 50%;
+        background: var(--ink);
+        color: white;
+      }
+
+      .packages {
+        background: #fdfbf7;
+      }
+
+      .package-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .package {
+        position: relative;
+      }
+
+      .package.selected {
+        border-color: var(--terracotta);
+        box-shadow: 0 0 0 2px rgba(170, 102, 81, 0.18);
+      }
+
+      .price {
+        margin: 18px 0;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 34px;
+      }
+
+      .option {
+        width: 100%;
+        margin-top: 18px;
+        padding: 10px 12px;
+        border-color: var(--line);
+        background: white;
+        color: var(--ink);
+      }
+
+      .package.selected .option {
+        background: var(--terracotta);
+        color: white;
+        border-color: var(--terracotta);
+      }
+
+      .estimate {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 260px;
+        gap: 18px;
+        align-items: center;
+        margin-top: 18px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--ink);
+        color: white;
+        padding: 22px;
+      }
+
+      .estimate p {
+        margin: 6px 0 0;
+        color: rgba(255, 255, 255, 0.72);
+      }
+
+      .estimate-output {
+        text-align: right;
+      }
+
+      .estimate-output strong {
+        display: block;
+        font-size: 32px;
+      }
+
+      .range {
+        width: 100%;
+        accent-color: var(--terracotta);
+      }
+
+      .approval {
+        background: var(--charcoal);
+        color: white;
+      }
+
+      .approval .section-head p,
+      .approval .card p,
+      .approval .card li {
+        color: rgba(255, 255, 255, 0.72);
+      }
+
+      .approval .card {
+        border-color: rgba(255, 255, 255, 0.14);
+        background: rgba(255, 255, 255, 0.06);
+      }
+
+      .checklist {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      .check {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        border-radius: 8px;
+        padding: 13px;
+      }
+
+      .check input {
+        width: 19px;
+        height: 19px;
+        accent-color: var(--gold);
+      }
+
+      .signature {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 12px;
+        margin-top: 22px;
+      }
+
+      .signature input {
+        min-height: 48px;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        border-radius: 7px;
+        background: rgba(255, 255, 255, 0.08);
+        color: white;
+        padding: 0 14px;
+      }
+
+      .signature input::placeholder {
+        color: rgba(255, 255, 255, 0.54);
+      }
+
+      footer {
+        padding: 26px clamp(20px, 5vw, 68px);
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      @media (max-width: 900px) {
+        .topbar {
+          align-items: flex-start;
+          flex-direction: column;
+        }
+
+        .nav {
+          justify-content: flex-start;
+        }
+
+        .hero,
+        .concept-panel,
+        .estimate {
+          grid-template-columns: 1fr;
+        }
+
+        .hero-image {
+          min-height: 390px;
+          order: -1;
+        }
+
+        .section-head {
+          align-items: flex-start;
+          flex-direction: column;
+        }
+
+        .grid,
+        .timeline,
+        .package-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .estimate-output {
+          text-align: left;
+        }
+      }
+
+      @media (max-width: 620px) {
+        .proposal-meta,
+        .checklist,
+        .signature {
+          grid-template-columns: 1fr;
+        }
+
+        .palette {
+          grid-template-columns: 1fr;
+        }
+
+        .swatch {
+          min-height: 64px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand">
+        <div class="mark">M.N</div>
+        <div>
+          <strong>Mariam N</strong>
+          <span>Hospitality interiors by M.N</span>
+        </div>
+      </div>
+      <nav class="nav" aria-label="Proposal sections">
+        <a href="#scope">Scope</a>
+        <a href="#concept">Concept</a>
+        <a href="#timeline">Timeline</a>
+        <a href="#packages">Packages</a>
+        <a href="#approval">Approval</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Prepared for a hospitality concept</p>
+          <h1>Functional spaces with a distinctive atmosphere.</h1>
+          <p>
+            This interactive proposal maps the concept, spatial logic, visual identity, and design package for a hospitality interior that feels practical, memorable, and comfortable to use.
+          </p>
+          <div class="actions">
+            <a class="cta" href="#packages">View Packages</a>
+            <a class="ghost" href="#concept">Explore Concept</a>
+            <a class="ghost" href="https://www.behance.net/mariamnishni" target="_blank" rel="noreferrer">View Portfolio</a>
+          </div>
+          <div class="proposal-meta" aria-label="Proposal summary">
+            <div class="metric">
+              <strong>Hospitality</strong>
+              <span>Cafes, salons, boutiques</span>
+            </div>
+            <div class="metric">
+              <strong>Concept to visuals</strong>
+              <span>Planning, mood, 3D renders</span>
+            </div>
+            <div class="metric">
+              <strong>Brand-led</strong>
+              <span>Function, mood, identity</span>
+            </div>
+          </div>
+        </div>
+        <div class="hero-image">
+          <img src="mariam-n-hospitality-hero.png" alt="Chic architectural hospitality interior concept" />
+        </div>
+      </section>
+
+      <section id="scope">
+        <div class="section-inner">
+          <div class="section-head">
+            <h2>What is included</h2>
+            <p>Each deliverable helps a business owner understand how the space should work, how it should feel, and how the design supports the brand experience.</p>
+          </div>
+          <div class="grid">
+            <article class="card">
+              <h3>Brand Atmosphere</h3>
+              <p>Mood direction, palette, material language, lighting mood, and a clear concept narrative for the customer experience.</p>
+            </article>
+            <article class="card">
+              <h3>Functional Planning</h3>
+              <p>Layout ideas, circulation, zoning, seating or service flow, and practical decisions shaped around daily operations.</p>
+            </article>
+            <article class="card">
+              <h3>Visual Package</h3>
+              <p>Realistic 3D visualizations, material suggestions, design details, and presentation assets for faster approval.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="concept" id="concept">
+        <div class="section-inner">
+          <div class="section-head">
+            <h2>Concept direction</h2>
+            <p>Switch between design notes to show how function, atmosphere, and brand identity come together.</p>
+          </div>
+          <div class="tabs" role="tablist" aria-label="Concept tabs">
+            <button class="tab active" type="button" data-tab="palette">Palette</button>
+            <button class="tab" type="button" data-tab="materials">Materials</button>
+            <button class="tab" type="button" data-tab="identity">Identity</button>
+          </div>
+          <div class="concept-panel">
+            <div class="palette" aria-label="Color palette">
+              <div class="swatch light" style="background:#f1e9df">Warm plaster</div>
+              <div class="swatch" style="background:#171b1c">Architectural black</div>
+              <div class="swatch light" style="background:#c8b49e">Stone beige</div>
+              <div class="swatch" style="background:#8d3150">Vibrant accent</div>
+              <div class="swatch" style="background:#62766a">Soft green</div>
+            </div>
+            <article class="card" id="conceptText">
+              <h3>Clean architectural base</h3>
+              <p>The palette starts with warm architectural neutrals, then adds controlled vibrant accents so the interior feels chic, memorable, and brand-aware.</p>
+              <ul>
+                <li>Warm plaster and stone for clarity</li>
+                <li>Dark lines for structure and rhythm</li>
+                <li>Vibrant accents used with intention</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="timeline">
+        <div class="section-inner">
+          <div class="section-head">
+            <h2>Project flow</h2>
+            <p>A clear timeline helps the client see exactly what happens after approval.</p>
+          </div>
+          <div class="timeline">
+            <article class="card step">
+              <h3>Discovery</h3>
+              <p>Business goals, customer flow, space measurements, brand references, budget range, and operational needs.</p>
+            </article>
+            <article class="card step">
+              <h3>Concept</h3>
+              <p>Mood direction, palette, initial layout idea, atmosphere, and visual story for approval.</p>
+            </article>
+            <article class="card step">
+              <h3>Development</h3>
+              <p>Space planning, 3D visualization, lighting direction, material suggestions, and detail refinement.</p>
+            </article>
+            <article class="card step">
+              <h3>Handover</h3>
+              <p>Final visuals, drawings or package files, material direction, and implementation notes.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="packages" id="packages">
+        <div class="section-inner">
+          <div class="section-head">
+            <h2>Choose the level of support</h2>
+            <p>Clients can compare your real service levels in one place, from a fast concept to a complete hospitality design package.</p>
+          </div>
+          <div class="package-grid">
+            <article class="card package" data-price="450">
+              <h3>Quick Concept</h3>
+              <p class="price">$450</p>
+              <p>Best for early-stage business owners who need a clear visual direction before moving forward.</p>
+              <ul>
+                <li>Layout idea</li>
+                <li>Concept visuals</li>
+                <li>Mood direction</li>
+              </ul>
+              <button class="option" type="button">Select</button>
+            </article>
+            <article class="card package selected" data-price="900">
+              <h3>Layout + Visualization</h3>
+              <p class="price">$900</p>
+              <p>Best when the client needs the space planned clearly and shown through realistic visuals.</p>
+              <ul>
+                <li>Space planning</li>
+                <li>Furniture layout</li>
+                <li>3D renders and material suggestions</li>
+              </ul>
+              <button class="option" type="button">Selected</button>
+            </article>
+            <article class="card package" data-price="1800">
+              <h3>Full Interior Design</h3>
+              <p class="price">$1,800</p>
+              <p>Best for cafes, boutiques, salons, wellness spaces, and boutique hotels needing a cohesive concept.</p>
+              <ul>
+                <li>Concept and drawings</li>
+                <li>Visualizations</li>
+                <li>Material selection</li>
+              </ul>
+              <button class="option" type="button">Select</button>
+            </article>
+          </div>
+          <div class="estimate">
+            <div>
+              <strong>Project area level</strong>
+              <p>Adjust this during a consultation to show how the fee changes with the number of zones or spaces.</p>
+              <input class="range" id="roomRange" type="range" min="1" max="5" value="1" />
+            </div>
+            <div class="estimate-output">
+              <span id="roomLabel">1 zone</span>
+              <strong id="estimateTotal">$900</strong>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="approval" id="approval">
+        <div class="section-inner">
+          <div class="section-head">
+            <h2>Ready to begin</h2>
+            <p>Use this area as a soft approval step before sending a contract or invoice.</p>
+          </div>
+          <div class="grid">
+            <article class="card">
+              <h3>Next steps</h3>
+              <ul>
+                <li>Confirm preferred package</li>
+                <li>Send measurements, photos, and brand references</li>
+                <li>Pay deposit to reserve the project slot</li>
+              </ul>
+            </article>
+            <article class="card">
+              <h3>Client checklist</h3>
+              <div class="checklist">
+                <label class="check"><input type="checkbox" /> Scope reviewed</label>
+                <label class="check"><input type="checkbox" /> Timeline approved</label>
+                <label class="check"><input type="checkbox" /> Package selected</label>
+                <label class="check"><input type="checkbox" /> Brand direction confirmed</label>
+              </div>
+            </article>
+            <article class="card">
+              <h3>Acceptance</h3>
+              <p>Type your name to mark the proposal as approved for the next stage.</p>
+              <div class="signature">
+                <input id="signatureInput" type="text" placeholder="Client name" />
+                <button class="cta" id="approveButton" type="button">Approve</button>
+              </div>
+              <p id="approvalMessage" aria-live="polite"></p>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      Mariam N / M.N. Replace client name, project type, prices, and deliverables for each proposal.
+    </footer>
+
+    <script>
+      const tabCopy = {
+        palette: {
+          title: "Clean architectural base",
+          body: "The palette starts with warm architectural neutrals, then adds controlled vibrant accents so the interior feels chic, memorable, and brand-aware.",
+          points: ["Warm plaster and stone for clarity", "Dark lines for structure and rhythm", "Vibrant accents used with intention"]
+        },
+        materials: {
+          title: "Hospitality-ready materials",
+          body: "The material direction balances atmosphere with durability, so the space can be photographed beautifully and used comfortably every day.",
+          points: ["Stone, microcement, and textured plaster", "Wood, metal, glass, and upholstered details", "Lighting choices that shape mood and movement"]
+        },
+        identity: {
+          title: "Brand identity in space",
+          body: "The interior should make the business recognizable without relying only on logos. Form, color, lighting, and details carry the brand feeling.",
+          points: ["A memorable first impression", "Functional flow for staff and guests", "Distinctive details that support the concept"]
+        }
+      };
+
+      const tabs = document.querySelectorAll(".tab");
+      const conceptText = document.getElementById("conceptText");
+
+      tabs.forEach((tab) => {
+        tab.addEventListener("click", () => {
+          tabs.forEach((item) => item.classList.remove("active"));
+          tab.classList.add("active");
+          const copy = tabCopy[tab.dataset.tab];
+          conceptText.innerHTML = `
+            <h3>${copy.title}</h3>
+            <p>${copy.body}</p>
+            <ul>${copy.points.map((point) => `<li>${point}</li>`).join("")}</ul>
+          `;
+        });
+      });
+
+      const packages = document.querySelectorAll(".package");
+      const range = document.getElementById("roomRange");
+      const total = document.getElementById("estimateTotal");
+      const roomLabel = document.getElementById("roomLabel");
+      let selectedPrice = 900;
+
+      function formatMoney(value) {
+        return new Intl.NumberFormat("en-US", {
+          style: "currency",
+          currency: "USD",
+          maximumFractionDigits: 0
+        }).format(value);
+      }
+
+      function updateEstimate() {
+        const rooms = Number(range.value);
+        roomLabel.textContent = rooms === 1 ? "1 zone" : `${rooms} zones`;
+        total.textContent = formatMoney(selectedPrice * rooms);
+      }
+
+      packages.forEach((packageCard) => {
+        packageCard.querySelector(".option").addEventListener("click", () => {
+          packages.forEach((item) => {
+            item.classList.remove("selected");
+            item.querySelector(".option").textContent = "Select";
+          });
+          packageCard.classList.add("selected");
+          packageCard.querySelector(".option").textContent = "Selected";
+          selectedPrice = Number(packageCard.dataset.price);
+          updateEstimate();
+        });
+      });
+
+      range.addEventListener("input", updateEstimate);
+      updateEstimate();
+
+      document.getElementById("approveButton").addEventListener("click", () => {
+        const name = document.getElementById("signatureInput").value.trim();
+        const message = document.getElementById("approvalMessage");
+        message.textContent = name
+          ? `Thank you, ${name}. The next step is deposit invoice and onboarding.`
+          : "Please type the client name first.";
+      });
+    </script>
+  </body>
+</html>

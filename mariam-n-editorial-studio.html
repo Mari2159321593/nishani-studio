@@ -1,0 +1,544 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Mariam N Studio</title>
+    <style>
+      :root {
+        --paper: #f4eee5;
+        --ink: #171614;
+        --muted: #6f675e;
+        --line: #d7cdbf;
+        --clay: #ad5948;
+        --berry: #842f4e;
+        --sage: #667468;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        background: var(--paper);
+        color: var(--ink);
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      }
+
+      img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .site-header {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        display: grid;
+        grid-template-columns: 1fr auto 1fr;
+        align-items: center;
+        padding: 18px clamp(18px, 4vw, 52px);
+        border-bottom: 1px solid rgba(23, 22, 20, 0.12);
+        background: rgba(244, 238, 229, 0.9);
+        backdrop-filter: blur(16px);
+      }
+
+      .brand {
+        justify-self: center;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: clamp(26px, 3vw, 42px);
+        letter-spacing: 0;
+        line-height: 1;
+      }
+
+      .nav-left,
+      .nav-right {
+        display: flex;
+        gap: clamp(12px, 2vw, 28px);
+        align-items: center;
+        font-size: 12px;
+        text-transform: uppercase;
+      }
+
+      .nav-right {
+        justify-content: flex-end;
+      }
+
+      .hero {
+        min-height: calc(100vh - 76px);
+        display: grid;
+        grid-template-columns: minmax(0, 0.78fr) minmax(380px, 1.22fr);
+      }
+
+      .hero-copy {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: clamp(34px, 6vw, 82px) clamp(22px, 5vw, 68px);
+      }
+
+      .label {
+        margin: 0 0 18px;
+        color: var(--clay);
+        font-size: 12px;
+        font-weight: 700;
+        text-transform: uppercase;
+      }
+
+      h1 {
+        max-width: 730px;
+        margin: 0;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: clamp(44px, 7.5vw, 98px);
+        font-weight: 400;
+        line-height: 0.92;
+      }
+
+      .intro {
+        max-width: 540px;
+        margin: 28px 0 0;
+        color: #403c37;
+        font-size: 18px;
+        line-height: 1.65;
+      }
+
+      .hero-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 18px;
+        margin-top: 38px;
+        font-size: 12px;
+        text-transform: uppercase;
+      }
+
+      .hero-links a {
+        border-bottom: 1px solid currentColor;
+        padding-bottom: 4px;
+      }
+
+      .hero-image {
+        min-height: 520px;
+      }
+
+      section {
+        padding: clamp(54px, 8vw, 110px) clamp(18px, 5vw, 68px);
+      }
+
+      .section-title {
+        display: grid;
+        grid-template-columns: minmax(0, 0.7fr) minmax(280px, 0.3fr);
+        gap: 26px;
+        align-items: end;
+        margin-bottom: 34px;
+      }
+
+      h2 {
+        margin: 0;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: clamp(34px, 5vw, 66px);
+        font-weight: 400;
+        line-height: 1;
+      }
+
+      .section-title p,
+      .studio-text p,
+      .service p,
+      .project p {
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.62;
+      }
+
+      .project-grid {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: 16px;
+      }
+
+      .project {
+        display: grid;
+        gap: 14px;
+      }
+
+      .project:nth-child(1) {
+        grid-column: span 7;
+      }
+
+      .project:nth-child(2) {
+        grid-column: span 5;
+        padding-top: 70px;
+      }
+
+      .project:nth-child(3) {
+        grid-column: 3 / span 8;
+      }
+
+      .project figure {
+        margin: 0;
+        aspect-ratio: 4 / 3;
+        overflow: hidden;
+        background: #ddd2c3;
+      }
+
+      .project:nth-child(2) figure {
+        aspect-ratio: 4 / 5;
+      }
+
+      .project h3 {
+        margin: 0;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: clamp(24px, 3vw, 38px);
+        font-weight: 400;
+      }
+
+      .meta {
+        color: var(--clay);
+        font-size: 12px;
+        font-weight: 700;
+        text-transform: uppercase;
+      }
+
+      .studio {
+        display: grid;
+        grid-template-columns: minmax(280px, 0.8fr) minmax(0, 1.2fr);
+        gap: clamp(28px, 6vw, 72px);
+        align-items: start;
+        border-top: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
+      }
+
+      .monogram {
+        width: min(260px, 60vw);
+        aspect-ratio: 1;
+        display: grid;
+        place-items: center;
+        border: 1px solid var(--ink);
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: clamp(54px, 9vw, 92px);
+        line-height: 1;
+      }
+
+      .studio-text {
+        display: grid;
+        gap: 24px;
+      }
+
+      .studio-text .large {
+        color: var(--ink);
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: clamp(30px, 4.5vw, 56px);
+        line-height: 1.08;
+      }
+
+      .services {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        border-top: 1px solid var(--line);
+        border-left: 1px solid var(--line);
+      }
+
+      .service {
+        min-height: 320px;
+        padding: clamp(22px, 4vw, 34px);
+        border-right: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
+      }
+
+      .service h3 {
+        margin: 0 0 24px;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: clamp(26px, 3.4vw, 42px);
+        font-weight: 400;
+        line-height: 1.05;
+      }
+
+      .service ul {
+        margin: 26px 0 0;
+        padding-left: 18px;
+        color: var(--muted);
+        line-height: 1.75;
+      }
+
+      .palette {
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        min-height: 240px;
+        margin-top: 18px;
+      }
+
+      .swatch {
+        display: flex;
+        align-items: end;
+        padding: 16px;
+        color: white;
+        font-size: 12px;
+      }
+
+      .swatch.light {
+        color: var(--ink);
+      }
+
+      .contact {
+        display: grid;
+        grid-template-columns: minmax(0, 0.8fr) minmax(280px, 0.2fr);
+        gap: 30px;
+        align-items: end;
+        background: var(--ink);
+        color: var(--paper);
+      }
+
+      .contact p {
+        max-width: 760px;
+        margin: 22px 0 0;
+        color: rgba(244, 238, 229, 0.72);
+        font-size: 18px;
+        line-height: 1.62;
+      }
+
+      .contact-actions {
+        display: grid;
+        gap: 12px;
+      }
+
+      .button {
+        display: inline-flex;
+        min-height: 46px;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid currentColor;
+        padding: 12px 18px;
+        font-size: 12px;
+        text-transform: uppercase;
+      }
+
+      footer {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+        padding: 24px clamp(18px, 5vw, 68px);
+        color: var(--muted);
+        font-size: 12px;
+        text-transform: uppercase;
+      }
+
+      @media (max-width: 900px) {
+        .site-header {
+          grid-template-columns: 1fr;
+          gap: 12px;
+          justify-items: center;
+        }
+
+        .nav-left,
+        .nav-right {
+          justify-content: center;
+          flex-wrap: wrap;
+        }
+
+        .hero,
+        .section-title,
+        .studio,
+        .contact {
+          grid-template-columns: 1fr;
+        }
+
+        .hero-image {
+          order: -1;
+          min-height: 430px;
+        }
+
+        .project:nth-child(1),
+        .project:nth-child(2),
+        .project:nth-child(3) {
+          grid-column: 1 / -1;
+          padding-top: 0;
+        }
+
+        .services {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 620px) {
+        .palette {
+          grid-template-columns: 1fr;
+        }
+
+        .swatch {
+          min-height: 58px;
+        }
+
+        footer {
+          flex-direction: column;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="nav-left" aria-label="Primary">
+        <a href="#work">Work</a>
+        <a href="#studio">Studio</a>
+        <a href="#services">Services</a>
+      </nav>
+      <a class="brand" href="#">Mariam N</a>
+      <nav class="nav-right" aria-label="Secondary">
+        <a href="https://www.behance.net/mariamnishni" target="_blank" rel="noreferrer">Behance</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="label">Hospitality interiors / M.N</p>
+          <h1>Clean, architectural spaces with character.</h1>
+          <p class="intro">
+            Mariam N designs cafes, boutiques, salons, wellness spaces, and boutique hotels where function, atmosphere, and brand identity meet.
+          </p>
+          <div class="hero-links">
+            <a href="#work">View Work</a>
+            <a href="#services">Explore Services</a>
+          </div>
+        </div>
+        <div class="hero-image">
+          <img src="mariam-n-hospitality-hero.png" alt="Architectural hospitality interior by Mariam N" />
+        </div>
+      </section>
+
+      <section id="work">
+        <div class="section-title">
+          <h2>Selected hospitality directions</h2>
+          <p>Project-style studies showing the atmosphere and spatial language Mariam can build for commercial interiors.</p>
+        </div>
+
+        <div class="project-grid">
+          <article class="project">
+            <figure>
+              <img src="mariam-n-cafe-project.png" alt="Chic cafe interior concept" />
+            </figure>
+            <div>
+              <span class="meta">Cafe / Concept / Visualization</span>
+              <h3>Counter, flow, and customer rhythm</h3>
+              <p>A compact cafe direction with a sculptural service point, warm lighting, and materials that make the brand feel immediate.</p>
+            </div>
+          </article>
+
+          <article class="project">
+            <figure>
+              <img src="mariam-n-wellness-project.png" alt="Boutique wellness interior concept" />
+            </figure>
+            <div>
+              <span class="meta">Salon / Wellness / Brand Mood</span>
+              <h3>Soft function, sharp identity</h3>
+              <p>A wellness interior where calm materials, display moments, and practical zoning support a comfortable client journey.</p>
+            </div>
+          </article>
+
+          <article class="project">
+            <figure>
+              <img src="mariam-n-hotel-project.png" alt="Boutique hotel lounge concept" />
+            </figure>
+            <div>
+              <span class="meta">Boutique Hotel / Lounge / Atmosphere</span>
+              <h3>A memorable first impression</h3>
+              <p>A boutique hospitality lounge built around arrival, seating, lighting, and detail moments that feel distinctive without becoming decorative noise.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="studio" id="studio">
+        <div class="monogram">M.N</div>
+        <div class="studio-text">
+          <p class="large">
+            The process starts with how the space should function, then shapes its character through materials, lighting, and carefully considered details.
+          </p>
+          <p>
+            From early concept development and space planning to realistic 3D visualizations and detailed design packages, the goal is to create interiors that feel distinctive, practical, and comfortable to use.
+          </p>
+          <div class="palette" aria-label="Mariam N visual palette">
+            <div class="swatch light" style="background:#f4eee5">Warm plaster</div>
+            <div class="swatch" style="background:#171614">Architectural black</div>
+            <div class="swatch light" style="background:#c7b7a1">Stone</div>
+            <div class="swatch" style="background:#842f4e">Vibrant accent</div>
+            <div class="swatch" style="background:#667468">Sage</div>
+          </div>
+        </div>
+      </section>
+
+      <section id="services">
+        <div class="section-title">
+          <h2>Services</h2>
+          <p>Three clear ways to work together, depending on whether the client needs direction, visualization, or a complete interior design package.</p>
+        </div>
+
+        <div class="services">
+          <article class="service">
+            <span class="meta">01</span>
+            <h3>Quick Concept</h3>
+            <p>A focused starting point for a new hospitality idea or existing space refresh.</p>
+            <ul>
+              <li>Layout idea</li>
+              <li>Concept visuals</li>
+              <li>Mood direction</li>
+            </ul>
+          </article>
+
+          <article class="service">
+            <span class="meta">02</span>
+            <h3>Layout + Visualization</h3>
+            <p>For clients who need to understand the space clearly before investing in execution.</p>
+            <ul>
+              <li>Space planning</li>
+              <li>3D renders</li>
+              <li>Material suggestions</li>
+            </ul>
+          </article>
+
+          <article class="service">
+            <span class="meta">03</span>
+            <h3>Full Interior Design</h3>
+            <p>A complete design direction for hospitality spaces with a cohesive brand experience.</p>
+            <ul>
+              <li>Concept</li>
+              <li>Drawings</li>
+              <li>Visualizations</li>
+              <li>Material selection</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="contact" id="contact">
+        <div>
+          <p class="label">Start a project</p>
+          <h2>For hospitality spaces that need more than decoration.</h2>
+          <p>
+            Share your project type, location, timeline, and what the space needs to achieve. Mariam can shape the concept from the first spatial idea through to a visual design package.
+          </p>
+        </div>
+        <div class="contact-actions">
+          <a class="button" href="https://www.behance.net/mariamnishni" target="_blank" rel="noreferrer">View Behance</a>
+          <a class="button" href="mailto:hello@example.com">Email Mariam</a>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <span>Mariam N / M.N</span>
+      <span>Hospitality interiors</span>
+    </footer>
+  </body>
+</html>
