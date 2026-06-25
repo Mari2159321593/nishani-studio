@@ -2173,6 +2173,96 @@ footer {
   background: transparent;
 }
 
+@media (min-width: 901px) {
+  :root {
+    --project-hero-width: min(1680px, calc(100vw - clamp(24px, 4vw, 80px)));
+    --project-standard-width: min(1460px, calc(100vw - clamp(32px, 6vw, 112px)));
+    --project-detail-width: min(980px, calc(100vw - clamp(86px, 18vw, 360px)));
+  }
+
+  .project-hero figure {
+    width: var(--project-hero-width);
+  }
+
+  .project-hero img {
+    max-height: 86vh;
+  }
+
+  .full-bleed figure,
+  .standalone-render figure,
+  .ommo-transition,
+  .rene-page .standalone-render figure {
+    width: min(1560px, calc(100vw - clamp(28px, 5vw, 96px)));
+  }
+
+  .frame-page .frame-emphasis figure,
+  .ommo-page .ommo-render figure,
+  .slow-mornings-page .full-bleed figure,
+  .kurunkoo-page .full-bleed figure,
+  .rene-page .standalone-render figure {
+    width: min(1640px, calc(100vw - clamp(24px, 4vw, 82px)));
+  }
+
+  .ceiling-renders,
+  .restroom-vignette,
+  .project-pair,
+  .rene-room,
+  .rene-bathrooms {
+    width: min(1580px, calc(100vw - clamp(28px, 5vw, 96px)));
+  }
+
+  .project-pair figure,
+  .frame-page .project-pair figure,
+  .ommo-page .project-pair figure {
+    aspect-ratio: auto;
+    min-height: 0;
+    overflow: visible;
+  }
+
+  .project-pair img,
+  .frame-page .project-pair img,
+  .ommo-page .project-pair img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 70vh;
+    object-fit: contain;
+    object-position: center center;
+  }
+
+  .frame-page .frame-detail-pair,
+  .frame-page .frame-transition-pair,
+  .ommo-page .ommo-night-pair {
+    padding-top: clamp(14px, 2vw, 28px);
+    padding-bottom: clamp(14px, 2vw, 28px);
+  }
+
+  .frame-page .detail-render figure,
+  .frame-page .fitting-detail figure,
+  .kurunkoo-page .fitting-detail figure {
+    width: var(--project-detail-width);
+  }
+
+  .frame-floorplan {
+    width: min(62vw, 1040px);
+  }
+
+  .ommo-floorplan,
+  .drawing-grid.plan-led {
+    width: min(76vw, 1360px);
+  }
+
+  .rene-room,
+  .rene-bathroom-grid {
+    gap: clamp(14px, 1.6vw, 28px);
+  }
+
+  .rene-bathroom-grid {
+    width: min(1580px, calc(100vw - clamp(28px, 5vw, 96px)));
+    margin-inline: auto;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -2262,6 +2352,7 @@ footer {
   .ommo-transition figure,
   .frame-page .project-hero figure,
   .frame-page .standalone-render figure,
+  .frame-page .project-pair figure,
   .slow-mornings-page .project-hero figure,
   .slow-mornings-page .full-bleed figure,
   .slow-mornings-page .ceiling-pair figure,
@@ -2281,9 +2372,11 @@ footer {
 
   .ommo-page .project-hero img,
   .ommo-page .standalone-render img,
+  .ommo-page .project-pair img,
   .ommo-transition img,
   .frame-page .project-hero img,
   .frame-page .standalone-render img,
+  .frame-page .project-pair img,
   .slow-mornings-page .project-hero img,
   .slow-mornings-page .full-bleed img,
   .slow-mornings-page .ceiling-pair img,
@@ -2306,6 +2399,18 @@ footer {
     margin-left: auto;
     margin-right: auto;
     margin-inline: auto;
+  }
+
+  .frame-page .project-pair,
+  .ommo-page .project-pair {
+    grid-template-columns: 1fr;
+    width: min(100%, calc(100vw - 36px));
+  }
+
+  .frame-page .project-pair figure,
+  .ommo-page .project-pair figure {
+    aspect-ratio: auto;
+    overflow: visible;
   }
 
   .project-title dl {
