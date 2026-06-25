@@ -490,39 +490,17 @@ section {
   grid-template-columns: minmax(0, 0.72fr) minmax(220px, 0.28fr);
   gap: clamp(16px, 2.4vw, 34px);
   align-items: center;
-  --project-accent: var(--clay);
-  --project-accent-hover: var(--clay);
+  --project-accent: #4f2f2c;
+  --project-accent-hover: #673832;
   cursor: pointer;
 }
 
 .feature-project--social {
-  --project-accent: #4f2f2c;
-  --project-accent-hover: #673832;
   width: min(1320px, 100%);
   margin-inline: auto;
   grid-template-columns: minmax(0, 0.66fr) minmax(260px, 0.28fr);
   gap: clamp(18px, 2.6vw, 40px);
   justify-content: center;
-}
-
-.feature-project--hotel {
-  --project-accent: #9a6758;
-  --project-accent-hover: #ad7463;
-}
-
-.feature-project--cinematic {
-  --project-accent: #6b4633;
-  --project-accent-hover: #7c5039;
-}
-
-.feature-project--immersive {
-  --project-accent: #9a7a56;
-  --project-accent-hover: #aa855d;
-}
-
-.feature-project--kurunkoo {
-  --project-accent: #6f3b42;
-  --project-accent-hover: #81464d;
 }
 
 .feature-project:nth-child(even) {
