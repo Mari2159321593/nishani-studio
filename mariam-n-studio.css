@@ -2147,6 +2147,27 @@ footer {
   padding-bottom: clamp(42px, 5vw, 70px);
 }
 
+/* Keep portfolio imagery sitting directly on the white page surface. */
+.feature-project figure,
+.work-card figure,
+.project-hero figure,
+.full-bleed figure,
+.standalone-render figure,
+.gallery-two figure,
+.project-gallery figure,
+.ceiling-pair figure,
+.restroom-pair figure,
+.project-pair figure,
+.drawing-image,
+.frame-floorplan figure,
+.ommo-floorplan figure,
+.ommo-transition figure,
+.rene-page .standalone-render figure,
+.rene-room figure,
+.rene-bathroom-grid figure {
+  background: transparent;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
