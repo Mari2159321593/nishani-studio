@@ -3,11 +3,11 @@
   <desc id="desc">Minimal typographic logo for Nishani Interior Design Studio</desc>
   <rect width="720" height="180" fill="#f5f0e8"/>
   <text x="360" y="84" text-anchor="middle" fill="#161514"
-        font-family="'PP Neue Montreal', 'Neue Haas Grotesk Text', 'Inter Tight', Arial, Helvetica, sans-serif" font-size="42" font-weight="500" letter-spacing="12">
+        font-family="'PP Neue Montreal', 'Neue Haas Grotesk Text', 'Inter Tight', Arial, Helvetica, sans-serif" font-size="42" font-weight="500" letter-spacing="14">
     NISHANI
   </text>
-  <text x="360" y="128" text-anchor="middle" fill="#746b60"
-        font-family="'PP Neue Montreal', 'Neue Haas Grotesk Text', 'Inter Tight', Arial, Helvetica, sans-serif" font-size="14" font-weight="400" letter-spacing="5">
+  <text x="360" y="136" text-anchor="middle" fill="#746b60"
+        font-family="'PP Neue Montreal', 'Neue Haas Grotesk Text', 'Inter Tight', Arial, Helvetica, sans-serif" font-size="14" font-weight="400" letter-spacing="3">
     Interior Design Studio
   </text>
 </svg>

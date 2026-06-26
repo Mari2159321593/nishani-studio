@@ -97,7 +97,7 @@ a:hover {
 
 .about-dark .brand small,
 .about-dark footer {
-  color: rgba(255, 255, 255, 0.58);
+  color: rgba(255, 255, 255, 0.62);
 }
 
 .brand {
@@ -105,7 +105,7 @@ a:hover {
   font-family: var(--identity);
   font-size: clamp(16px, 1.45vw, 22px);
   font-weight: 500;
-  letter-spacing: 0.24em;
+  letter-spacing: 0.3em;
   line-height: 1.05;
   text-align: center;
   text-transform: uppercase;
@@ -113,12 +113,12 @@ a:hover {
 
 .brand small {
   display: block;
-  margin-top: 6px;
+  margin-top: 9px;
   color: var(--muted);
   font-family: var(--identity);
-  font-size: 9px;
+  font-size: 9.5px;
   font-weight: 400;
-  letter-spacing: 0.28em;
+  letter-spacing: 0.16em;
   text-align: center;
   text-transform: uppercase;
 }
@@ -271,19 +271,19 @@ a:hover {
   font-family: var(--identity);
   font-size: clamp(42px, 8vw, 112px);
   font-weight: 500;
-  letter-spacing: 0.22em;
+  letter-spacing: 0.28em;
   line-height: 0.95;
   text-transform: uppercase;
 }
 
 .landing-center p:not(.landing-kicker) {
   max-width: 560px;
-  margin: 20px auto 0;
-  color: rgba(245, 240, 232, 0.78);
+  margin: 30px auto 0;
+  color: rgba(245, 240, 232, 0.82);
   font-family: var(--identity);
-  font-size: 11px;
+  font-size: clamp(10px, 0.9vw, 13px);
   font-weight: 400;
-  letter-spacing: 0.3em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
 }
 
@@ -1994,8 +1994,17 @@ footer {
   font-family: var(--identity);
   font-size: 11px;
   font-weight: 400;
-  letter-spacing: 0.18em;
   text-transform: uppercase;
+}
+
+footer span:first-child {
+  color: var(--ink);
+  font-weight: 500;
+  letter-spacing: 0.28em;
+}
+
+footer span:last-child {
+  letter-spacing: 0.14em;
 }
 
 .project-nav {
@@ -2048,6 +2057,10 @@ footer {
 
 .about-dark footer {
   background: var(--ink);
+}
+
+.about-dark footer span:first-child {
+  color: var(--paper);
 }
 
 [data-reveal] {
