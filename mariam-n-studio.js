@@ -60,19 +60,56 @@ window.addEventListener("DOMContentLoaded", () => {
   }
 
   const revealItems = document.querySelectorAll("[data-reveal]");
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("is-visible");
-          observer.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.14 }
-  );
+  const revealAll = () => {
+    revealItems.forEach((item) => item.classList.add("is-visible"));
+  };
 
-  revealItems.forEach((item) => observer.observe(item));
+  const recheckImages = () => {
+    document.querySelectorAll("img").forEach((image) => {
+      if (image.complete && image.naturalWidth > 0) return;
+
+      const src = image.getAttribute("src");
+      if (!src) return;
+
+      image.loading = "eager";
+      image.removeAttribute("src");
+      window.requestAnimationFrame(() => {
+        image.setAttribute("src", src);
+      });
+    });
+  };
+
+  if ("IntersectionObserver" in window) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.14 }
+    );
+
+    revealItems.forEach((item) => observer.observe(item));
+  } else {
+    revealAll();
+  }
+
+  window.addEventListener("pageshow", (event) => {
+    entering = false;
+    document.body.classList.add("is-loaded");
+    document.body.classList.remove("is-leaving");
+
+    const navigation = performance.getEntriesByType("navigation")[0];
+    const restoredFromCache = event.persisted || (navigation && navigation.type === "back_forward");
+
+    if (restoredFromCache) {
+      revealAll();
+      recheckImages();
+    }
+  });
 
   document.querySelectorAll("a[href]").forEach((link) => {
     const href = link.getAttribute("href");
